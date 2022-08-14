@@ -1,0 +1,33 @@
+logging:
+  config: classpath:log4j.yml
+  file:
+    name: /home/shared/PCube_log/entity-service.log
+
+hbase:
+  config:
+  zookeeper:
+    znode:
+      parent: /hbase
+    quorum: 10.105.242.73
+    property:
+      clientPort: 2181
+
+spring:
+  main:
+    web-application-type: servlet
+  mvc:
+    servlet:
+      load-on-startup=100:
+
+  elasticsearch:
+    rest:
+      connection-timeout: 6s
+      uris: pcube-cluster-02:9200
+      read-timeout: 10s
+      #username:
+      #password:
+  neo4j:
+    authentication:
+      password: nucleartest
+      username: neo4j
+    uri: bolt://10.105.222.245:7687
